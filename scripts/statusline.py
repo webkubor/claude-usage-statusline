@@ -317,6 +317,48 @@ def git_state(cwd):
     return {"branch": branch, "ahead": ahead, "behind": behind, "dirty": dirty}
 
 
+def active_child_repo(cwd, limit=24):
+    """When `cwd` itself is not a repo, find the child repo you were last working in.
+
+    Why this exists: work often starts from a business-line directory that holds
+    several repos side by side (`~/dev/muse` → museav-manager / museav-web / ...).
+    That directory is not a repo, so the branch segment went blank exactly when it
+    was most useful — the session spends the whole day committing inside one of the
+    children and the status line says nothing about which.
+
+    The pick is `.git/index` mtime: it is touched by add / commit / checkout, so it
+    tracks "where work is actually happening" rather than "what was edited", which
+    is what you want when several repos are checked out but only one is live.
+    Modified files alone would be misleading — an editor writing a file in a repo
+    you are not committing to would win.
+
+    One level deep only, and capped: this runs on every status line render, so it
+    must stay a handful of stat() calls, never a tree walk.
+    """
+    try:
+        entries = sorted(os.scandir(cwd), key=lambda e: e.name)[:limit]
+    except Exception:
+        return None
+    best, best_mtime = None, -1.0
+    for entry in entries:
+        if not entry.is_dir(follow_symlinks=False) or entry.name.startswith("."):
+            continue
+        index = os.path.join(entry.path, ".git", "index")
+        try:
+            mtime = os.stat(index).st_mtime
+        except Exception:
+            continue
+        if mtime > best_mtime:
+            best, best_mtime = entry, mtime
+    if not best:
+        return None
+    state = git_state(best.path)
+    if not state:
+        return None
+    state["repo"] = best.name
+    return state
+
+
 def git_label(state):
     """`main ±3 ↑2` — and just `main` when the tree is clean and in sync.
 
@@ -375,7 +417,17 @@ cwd = (payload.get("workspace") or {}).get("current_dir") or payload.get("cwd") 
 if cwd:
     base = os.path.basename(cwd)
     label = base if NO_COLOR else f"\033[36m{base}{RESET}"
-    git = git_label(git_state(cwd))
+    state = git_state(cwd)
+    if not state:
+        # Not a repo — surface the child repo work is actually happening in,
+        # rendered as `muse › museav-manager main`, so the working directory
+        # keeps its meaning while the branch stops going blank.
+        child = active_child_repo(cwd)
+        if child:
+            name = child["repo"]
+            label += dim(" › ") + (name if NO_COLOR else f"\033[36m{name}{RESET}")
+            state = child
+    git = git_label(state)
     if git:
         label += f" {git}"
     head.append(label)
