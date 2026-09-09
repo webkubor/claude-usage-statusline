@@ -1,5 +1,5 @@
 ---
-name: usage-statusline
+name: claude-usage-statusline
 version: 1.1.0
 description: "在 Claude Code 状态栏常驻显示：会话花费（区分订阅制等价金额与按量付费实际账单）、上下文占用、5 小时/7 天限额条与重置时刻、无按量兜底时的硬停预警、5h 窗口燃尽预测、git 未提交/未推送计数、当前模型与 effort 档位；含三套主题与本地扩展段机制。触发词：装/配置 usage statusline、状态栏加用量提示、想在状态栏看还剩多少配额、状态栏显示模型/git 状态、切换状态栏主题、usage indicator、rate limit statusline。调用一次即完成安装，之后每次开 Claude Code 自动显示，无需重复调用。"
 metadata:
@@ -7,7 +7,7 @@ metadata:
     bins: ["python3"]
 ---
 
-# usage-statusline
+# claude-usage-statusline
 
 ## 先分派：这次要干什么
 
@@ -77,7 +77,7 @@ my-project main
 
 | 模式 | 怎么装 | statusLine 指向 | 升级 | 什么时候用 |
 |---|---|---|---|---|
-| **skill 流程**（默认） | 用户执行 `/usage-statusline`，Claude 照下面步骤做 | `~/.claude/statusline/usage.py`（副本） | 重跑一次 skill | 默认推荐，装完稳定不变 |
+| **skill 流程**（默认） | 用户执行 `/claude-usage-statusline`，Claude 照下面步骤做 | `~/.claude/statusline/usage.py`（副本） | 重跑一次 skill | 默认推荐，装完稳定不变 |
 | **脚本** | `./install.sh` | 同上（副本） | 重跑 `./install.sh` | 不走 Claude、CI、或写进 dotfiles |
 | **跟随主线** | `./install.sh --link` | clone 里的 `scripts/statusline.py` | `git pull` | 用户要「改完就生效 / 不留副本 / 跟着 GitHub 走」 |
 
@@ -94,7 +94,7 @@ my-project main
 用 Bash 在常见 skill 安装位置里找 `scripts/statusline.py`：
 
 ```bash
-find ~/.claude/skills ~/.claude/plugins . -maxdepth 6 -type f -path "*usage-statusline/scripts/statusline.py" 2>/dev/null
+find ~/.claude/skills ~/.claude/plugins . -maxdepth 6 -type f -path "*claude-usage-statusline/scripts/statusline.py" 2>/dev/null
 ```
 
 把匹配到的路径去掉 `/scripts/statusline.py` 后缀，记作 `SKILL_DIR`。如果找不到（比如用户是
@@ -136,7 +136,7 @@ chmod +x ~/.claude/statusline/usage.py
 }
 ```
 
-改之前先把原 `settings.json` 备份成 `settings.json.bak-usage-statusline`（如果文件本来就存在）。
+改之前先把原 `settings.json` 备份成 `settings.json.bak-claude-usage-statusline`（如果文件本来就存在）。
 用 `python3 -m json.tool` 验证改完的 JSON 合法。
 
 **第 4 步 — 用当前会话真实的 transcript 里最近一条 payload（或构造一份最小样例）测试渲染。**
@@ -169,7 +169,7 @@ echo '{"cwd":"'"$PWD"'","cost":{"total_cost_usd":0.1},"context_window":{"used_pe
 
 ## 卸载
 
-把 `~/.claude/settings.json` 里的 `statusLine` 字段删掉（或者如果之前有 `.bak-usage-statusline`
+把 `~/.claude/settings.json` 里的 `statusLine` 字段删掉（或者如果之前有 `.bak-claude-usage-statusline`
 备份，直接恢复那份），再删 `~/.claude/statusline/usage.py` 和 `~/.claude/statusline/history.jsonl`。
 `segments/` 里是用户自己的扩展段，**不要替他删**，要删也先问。
 

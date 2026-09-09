@@ -58,7 +58,7 @@ if os.path.exists(settings_path):
         print("Not overwriting it. Edit settings.json yourself if you want to switch, e.g.:")
         print(json.dumps({"statusLine": {"type": "command", "command": command, "padding": 0}}, indent=2))
         sys.exit(0)
-    backup = settings_path + ".bak-usage-statusline"
+    backup = settings_path + ".bak-claude-usage-statusline"
     if not os.path.exists(backup):
         with open(backup, "w") as f:
             json.dump(data, f, indent=2, ensure_ascii=False)

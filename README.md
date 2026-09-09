@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="./assets/logo.png" width="84" alt="usage-statusline">
+<img src="./assets/logo.png" width="84" alt="claude-usage-statusline">
 
-# usage-statusline
+# claude-usage-statusline
 
 ### 给 **Claude Code** 的状态栏
 
@@ -28,10 +28,10 @@
 ## 安装
 
 ```bash
-git clone https://github.com/webkubor/usage-statusline ~/.claude/skills/usage-statusline
+git clone https://github.com/webkubor/claude-usage-statusline ~/.claude/skills/claude-usage-statusline
 ```
 
-然后在 Claude Code 里执行 `/usage-statusline` —— Claude 会照 [SKILL.md](./SKILL.md) 装好：
+然后在 Claude Code 里执行 `/claude-usage-statusline` —— Claude 会照 [SKILL.md](./SKILL.md) 装好：
 备份你原有配置、遇到冲突先问你、装完当场验证渲染。**重启 Claude Code 即生效。**
 
 <sub>不走 skill 流程就跑 <code>./install.sh</code>。想让 <code>git pull</code> 直接上线（不留副本）用 <code>./install.sh --link</code>。卸载、扩展段契约、各装法差异都在 <a href="./SKILL.md">SKILL.md</a>。</sub>
@@ -106,7 +106,7 @@ my-project main ±3 ↑2  Opus 5·high                 ← 目录 + git 状态 +
 echo cool > ~/.claude/statusline/theme     # default | cool | mono
 ```
 
-在 Claude Code 里也可以直接说 `/usage-statusline cool`，或者「状态栏换成灰的」。
+在 Claude Code 里也可以直接说 `/claude-usage-statusline cool`，或者「状态栏换成灰的」。
 
 | 主题 | 色带 | 适合 |
 |---|---|---|
@@ -133,7 +133,7 @@ my-project main  ⏱ deploy ok·queue 3
 **要 powerline 分段、图形化配置器、Git PR/CI 状态，去用 ccstatusline；
 要装完不用调就好看、且源码能一口气读完，用这个。**
 
-| | **usage-statusline** | [ccstatusline](https://github.com/sirmalloc/ccstatusline) | [claude-powerline](https://github.com/Owloops/claude-powerline) | [CCometixLine](https://github.com/Haleclipse/CCometixLine) |
+| | **claude-usage-statusline** | [ccstatusline](https://github.com/sirmalloc/ccstatusline) | [claude-powerline](https://github.com/Owloops/claude-powerline) | [CCometixLine](https://github.com/Haleclipse/CCometixLine) |
 |---|---|---|---|---|
 | Star | — | 12.4k | 1.1k | 3.4k |
 | 实现 | 单文件 Python | TypeScript / npm | TypeScript / npm | Rust 二进制 |

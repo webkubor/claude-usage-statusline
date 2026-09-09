@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="./assets/logo.png" width="84" alt="usage-statusline">
+<img src="./assets/logo.png" width="84" alt="claude-usage-statusline">
 
-# usage-statusline
+# claude-usage-statusline
 
 ### A status line for **Claude Code**
 
@@ -28,10 +28,10 @@
 ## Install
 
 ```bash
-git clone https://github.com/webkubor/usage-statusline ~/.claude/skills/usage-statusline
+git clone https://github.com/webkubor/claude-usage-statusline ~/.claude/skills/claude-usage-statusline
 ```
 
-Then run `/usage-statusline` in Claude Code — it follows [SKILL.md](./SKILL.md) to install:
+Then run `/claude-usage-statusline` in Claude Code — it follows [SKILL.md](./SKILL.md) to install:
 backs up your existing config, asks before overwriting anything, and verifies the render.
 **Restart Claude Code and it's live.**
 
@@ -108,7 +108,7 @@ Three built in, **tuned to look right with no configuration**. Switching is one 
 echo cool > ~/.claude/statusline/theme     # default | cool | mono
 ```
 
-Inside Claude Code you can also just say `/usage-statusline cool`, or "make the status line grey".
+Inside Claude Code you can also just say `/claude-usage-statusline cool`, or "make the status line grey".
 
 | Theme | Ramp | Good for |
 |---|---|---|
@@ -135,7 +135,7 @@ This space is crowded, and some alternatives do **considerably more**. Straight 
 **want powerline segments, a graphical configurator, Git PR/CI status? use ccstatusline.
 Want it to look right on install, in a source file you can read in one sitting? use this.**
 
-| | **usage-statusline** | [ccstatusline](https://github.com/sirmalloc/ccstatusline) | [claude-powerline](https://github.com/Owloops/claude-powerline) | [CCometixLine](https://github.com/Haleclipse/CCometixLine) |
+| | **claude-usage-statusline** | [ccstatusline](https://github.com/sirmalloc/ccstatusline) | [claude-powerline](https://github.com/Owloops/claude-powerline) | [CCometixLine](https://github.com/Haleclipse/CCometixLine) |
 |---|---|---|---|---|
 | Stars | — | 12.4k | 1.1k | 3.4k |
 | Implementation | Single Python file | TypeScript / npm | TypeScript / npm | Rust binary |
