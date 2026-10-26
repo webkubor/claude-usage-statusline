@@ -1,0 +1,32 @@
+name: check
+
+# claude-usage-statusline 的门禁：Python 语法、install.sh 语法、statusline 冒烟。
+#
+# 冒烟那步喂一条最小 payload 看有没有正常吐出状态行 —— 这个脚本挂在 Claude Code
+# 的每次提示上，坏一次的代价是「静默不显示」，比报错还难发现。
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Python 语法
+        run: python -m py_compile scripts/statusline.py
+
+      - name: install.sh 语法
+        run: bash -n install.sh
+
+      - name: 冒烟（喂一条最小 payload）
+        run: |
+          echo '{"model":{"display_name":"Sonnet"},"workspace":{"current_dir":"/tmp"}}' \
+            | python3 scripts/statusline.py
