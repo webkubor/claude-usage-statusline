@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://cdn.jsdelivr.net/gh/webkubor/free-imgbed@main/claude-usage-statusline/logo.png" width="84" alt="claude-usage-statusline">
+<img src="https://cdn.jsdelivr.net/gh/webkubor/free-imgbed@main/claude-usage-statusline/logo.svg" width="84" alt="claude-usage-statusline">
 
 # claude-usage-statusline
 
