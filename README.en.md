@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://cdn.jsdelivr.net/gh/webkubor/free-imgbed@main/claude-usage-statusline/logo.svg" width="84" alt="claude-usage-statusline">
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://cdn.jsdelivr.net/gh/webkubor/free-imgbed@main/claude-usage-statusline/mark-v3-dark.svg"><img src="https://cdn.jsdelivr.net/gh/webkubor/free-imgbed@main/claude-usage-statusline/mark-v3.svg" width="84" alt="claude-usage-statusline"></picture>
 
 # claude-usage-statusline
 
