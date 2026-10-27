@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./assets/logo.png" width="84" alt="claude-usage-statusline">
+<img src="https://cdn.jsdelivr.net/gh/webkubor/free-imgbed@main/claude-usage-statusline/logo.png" width="84" alt="claude-usage-statusline">
 
 # claude-usage-statusline
 
@@ -17,7 +17,7 @@
 
 [中文](./README.md) · [Install](#install) · [Alternatives](#how-it-compares)
 
-<img src="./assets/statusline.png" width="900" alt="Claude Code status line: subscription, limit running out, pay-as-you-go, themes">
+<img src="https://cdn.jsdelivr.net/gh/webkubor/free-imgbed@main/claude-usage-statusline/statusline.webp" width="900" alt="Claude Code status line: subscription, limit running out, pay-as-you-go, themes">
 
 `Claude Code` · `statusline` · `usage monitor` · `rate limit` · `context window` · `token usage` · `subscription` · `pay-as-you-go` · `CLI` · `zero dependencies`
 

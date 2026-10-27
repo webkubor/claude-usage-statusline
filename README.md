@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./assets/logo.png" width="84" alt="claude-usage-statusline">
+<img src="https://cdn.jsdelivr.net/gh/webkubor/free-imgbed@main/claude-usage-statusline/logo.png" width="84" alt="claude-usage-statusline">
 
 # claude-usage-statusline
 
@@ -17,7 +17,7 @@
 
 [English](./README.en.md) · [安装](#安装) · [同类对比](#同类项目对比)
 
-<img src="./assets/statusline.png" width="900" alt="Claude Code 状态栏效果：订阅制、额度告急、按量付费、主题">
+<img src="https://cdn.jsdelivr.net/gh/webkubor/free-imgbed@main/claude-usage-statusline/statusline.webp" width="900" alt="Claude Code 状态栏效果：订阅制、额度告急、按量付费、主题">
 
 `Claude Code` · `statusline` · `状态栏` · `用量监控` · `限额预警` · `rate limit` · `context window` · `token 用量` · `订阅制` · `按量付费` · `CLI` · `零依赖`
 
