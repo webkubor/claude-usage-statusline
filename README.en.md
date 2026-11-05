@@ -28,7 +28,7 @@
 ## Install
 
 ```bash
-git clone https://github.com/webkubor/claude-usage-statusline ~/.claude/skills/claude-usage-statusline
+git clone git@github.com:webkubor/claude-usage-statusline ~/.claude/skills/claude-usage-statusline
 ```
 
 Then run `/claude-usage-statusline` in Claude Code — it follows [SKILL.md](./SKILL.md) to install:

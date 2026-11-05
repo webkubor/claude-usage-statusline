@@ -28,7 +28,7 @@
 ## 安装
 
 ```bash
-git clone https://github.com/webkubor/claude-usage-statusline ~/.claude/skills/claude-usage-statusline
+git clone git@github.com:webkubor/claude-usage-statusline ~/.claude/skills/claude-usage-statusline
 ```
 
 然后在 Claude Code 里执行 `/claude-usage-statusline` —— Claude 会照 [SKILL.md](./SKILL.md) 装好：
